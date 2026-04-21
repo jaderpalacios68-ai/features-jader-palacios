@@ -1,0 +1,24 @@
+{
+  "name": "coqam_app",
+  "version": "1.0.0",
+  "description": "tienda virtual para el coquito amarillo",
+  "keywords": [
+    "tienda",
+    "virtual",
+    "retail",
+    "medellin",
+    "coquito",
+    "amarillo"
+  ],
+  "license": "GPL-3.0-or-later",
+  "author": "jader palacios",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
