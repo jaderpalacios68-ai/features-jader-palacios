@@ -2,7 +2,7 @@ import express from "express";
 const app = express ();
 
 app.get("/", (reg,res)=>{
-    res.send("BIENVENIDO A LA PAGINA DE COQUITO AMARILLO DE JADER PALACIOS")
+    res.send("BIENVENIDO A LA PAGINA DE ROPA JP STYLE")
 
 
 });

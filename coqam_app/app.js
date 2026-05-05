@@ -1,14 +1,33 @@
-import express from "express"
+import express from "express";
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.get("/", (reg,res)=>{
-    res.send("BIENVENIDO A LA PAGINA DE COQUITO AMARILLO DE JADER PALACIOS")
+app.use(express.json());
 
-
+app.get("/", (req, res) => {
+    res.send("BIENVENIDO A LA PAGINA DE JADER PALACIOS");
 });
 
-app.listen (3000,()=>{
-    console.log (`example app listening on port ${port}`)
-})
+app.get("/pokemon/:name", async (req, res) => {
+    const { name } = req.params;
+
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        const data = await response.json();
+
+        res.json({ 
+            nombre: data.name,
+            altura: data.height,
+            peso: data.weight,
+            tipo: data.types.map(t => t.type.name)
+        });
+
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los datos del Pokémon" });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
+});

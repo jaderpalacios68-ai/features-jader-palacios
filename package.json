@@ -1,0 +1,21 @@
+{
+  "name": "features-jader-palacios",
+  "version": "1.0.0",
+  "description": "LPM01-201-3 U4AEAE1 API-REST+NodeJS+Express directamente en codesapaces de GitHub.",
+  "main": "prueba.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaderpalacios68-ai/features-jader-palacios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jaderpalacios68-ai/features-jader-palacios/issues"
+  },
+  "homepage": "https://github.com/jaderpalacios68-ai/features-jader-palacios#readme"
+}
