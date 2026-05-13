@@ -1,17 +1,16 @@
-import { Router } from "express";
-
+import express from "express";
 import {
-    getAllPedidos,
-    createPedido
+    listarPedidos,
+    obtenerPedido,
+    crearNuevoPedido,
+    eliminarPedidoPorId
+} from "../controllers/pedidosControl.js";
 
-} from "../controllers/pedidosController.js";
+const router = express.Router();
 
-const router = Router();
-
-// GET pedidos
-router.get("/", getAllPedidos);
-
-// POST pedido
-router.post("/", createPedido);
+router.get("/", listarPedidos);
+router.get("/:id", obtenerPedido);
+router.post("/", crearNuevoPedido);
+router.delete("/:id", eliminarPedidoPorId);
 
 export default router;

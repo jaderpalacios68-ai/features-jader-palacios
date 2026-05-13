@@ -44,6 +44,17 @@ footer{background:#111;color:white;text-align:center;padding:30px;}
 }
 </style>
 </head>
+<h2>Realizar Pedido</h2>
+
+<form id="formPedido">
+    <input type="text" id="cliente" placeholder="Nombre del cliente" required>
+    <input type="text" id="producto" placeholder="Producto" required>
+    <input type="number" id="cantidad" placeholder="Cantidad" required>
+    <input type="number" id="precio" placeholder="Precio" required>
+    <button type="submit">Crear Pedido</button>
+</form>
+
+<p id="mensaje"></p>
 <body>
 <div class="top-bar">
   <p>Nueva coleccion deportiva disponible</p>

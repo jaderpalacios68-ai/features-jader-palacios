@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 
 // RUTAS
 import productosRoutes from "./routes/productos.js";
+import pedidosRoutes from "./routes/pedidos.js";
+
 
 const app = express();
 
@@ -21,6 +23,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // RUTAS API
 app.use("/api/productos", productosRoutes);
+app.use("/api/pedidos", pedidosRoutes);
+
 
 // RUTA PRINCIPAL
 app.get("/", (req, res) => {

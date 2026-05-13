@@ -1,22 +1,57 @@
-import * as pedidosModel from "../models/pedidosModel.js";
+import {
+    obtenerPedidos,
+    obtenerPedidoPorId,
+    crearPedido,
+    eliminarPedido
+} from "../models/pedidosModel.js";
 
-// GET pedidos
-export const getAllPedidos = (req, res) => {
-
-    const pedidos = pedidosModel.findAll();
-
-    res.json(pedidos);
+export const listarPedidos = (req, res) => {
+    res.json(obtenerPedidos());
 };
 
-// POST pedido
-export const createPedido = (req, res) => {
+export const obtenerPedido = (req, res) => {
+    const id = parseInt(req.params.id);
+    const pedido = obtenerPedidoPorId(id);
 
-    const nuevoPedido = req.body;
+    if (!pedido) {
+        return res.status(404).json({
+            mensaje: "Pedido no encontrado"
+        });
+    }
 
-    pedidosModel.create(nuevoPedido);
+    res.json(pedido);
+};
 
-    res.status(201).json({
-        mensaje: "Pedido creado correctamente",
-        pedido: nuevoPedido
+export const crearNuevoPedido = (req, res) => {
+    const { cliente, producto, cantidad, precio } = req.body;
+
+    if (!cliente || !producto || !cantidad || !precio) {
+        return res.status(400).json({
+            mensaje: "Todos los campos son obligatorios"
+        });
+    }
+
+    const nuevoPedido = crearPedido({
+        cliente,
+        producto,
+        cantidad,
+        precio
+    });
+
+    res.status(201).json(nuevoPedido);
+};
+
+export const eliminarPedidoPorId = (req, res) => {
+    const id = parseInt(req.params.id);
+    const pedidoEliminado = eliminarPedido(id);
+
+    if (!pedidoEliminado) {
+        return res.status(404).json({
+            mensaje: "Pedido no encontrado"
+        });
+    }
+
+    res.json({
+        mensaje: "Pedido eliminado correctamente"
     });
 };
